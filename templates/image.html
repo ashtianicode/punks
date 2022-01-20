@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{% block title %} {{ image['image_title'] }} {% endblock %}</h3>    
+    <img src="{{url_for('static', filename=image['image_address'])}}" width="200"/>
+    <h5>{{ image['image_attributes'] }}</h5>
+    <hr></br></br>
+
+    
+<h3>Similar CryptoPunks</h3>
+{% with images=similars %}
+    {% include "list.html" %}
+{% endwith %}
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,20 @@
+{% block content %}
+
+<section class="section">
+    <div class="container">
+        {% for row in images|batch(4) %}
+        <div class="row">
+            {% for image in row %}
+            <div class="col">
+                <img src="{{url_for('static', filename=image['image_address'])}}" width="100"/>
+                <a href="{{ url_for('image', image_id=image['id']) }}">
+                    <p>{{ image['image_title'] }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div><hr>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
